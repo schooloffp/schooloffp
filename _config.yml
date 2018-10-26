@@ -1,1 +1,8 @@
+title: School of FP
+email: theschooloffp@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Helping Developers understand and apply functional programming.
+twitter_username: schooloffp
+github_username:  schooloffp
 theme: minima
+google_analytics: UA-128171792-1
