@@ -6,7 +6,7 @@ permalink: /about/
 
 Learning functional programming could be a very dauting task. Not because it is an inherently difficult subject, but because it requires unlearning and forming new mental models.
 
-This is because most developers attempting to learn functional programming do so after years of experience programming in imperative fashion using non functional languages (mostly object oriented languages).
+This unlearning is needed because, most developers attempting to learn functional programming do so after years of experience using non functional languages (mostly object oriented languages).
 
 > I can teach anyone how to program in Haskell in a day, but if they know C or C++, it'll take me a week
 
