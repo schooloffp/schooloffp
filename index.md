@@ -4,7 +4,7 @@ layout: home
 
 ![logo](/assets/shooloffp_logo.jpg){:width="25%"}
 
-We want to make learning functional programming more enjoyable and less frustrating.
+We want to make learning functional programming enjoyable and less frustrating.
 
 <!-- Begin Mailchimp Signup Form -->
 <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">

@@ -14,5 +14,5 @@ This unlearning is needed because, most developers attempting to learn functiona
 
 {{ site.title }} seeks to make learning functional programming less dauting. We do this by not only providing accessible training contents, but by also helping developers become aware and confront their pre-concieved notation that might be standing in their way of appreciating functional programming concepts.
 
-We will be providing paid workshops and learning contents to help with this. We are currently working on getting things ready. If you want to be notified when we go live please do drop your emails [here](https://mailchi.mp/c8ba4012f9e2/school-of-fp){:target="_blank"}
+We will be providing paid workshops and learning contents to help with this. We are currently working on getting things ready. If you want to be notified when we go live, please do drop your emails [here](https://mailchi.mp/c8ba4012f9e2/school-of-fp){:target="_blank"}
 
