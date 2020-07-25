@@ -218,7 +218,7 @@ Prelude> 1 + 1
 2
 ```
 
-`ghci` supports a lot of functionalities. For example, it is possible to load a Haskell file into the REPL and execute it from there. 
+`ghci` supports a lot of functionalities. For example, it is possible to load a Haskell file into the REPL and execute it from there. Check the [GHCi section](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/ghci.html) of the GHC user guide to learn more about the various things that can be done within the REPL.
 
 ```
 ghci
@@ -248,6 +248,28 @@ Hello, World!
 ```
 
 And as stated before, the difference between `runghc` and `runhaskell` is that `runhaskell` provides the ability to swap the Haskell compiler from `ghc` to something else. Although in practical terms, since `ghc` has grown to become the de facto Haskell compiler, `runhaskel` is somewhat redundant.
+
+The interesting bit about `runghc` (and `runhaskell`) is that they allow the possibility to use Haskell as a scripting language. For instance, to run the hello world as a script, update the `hello.hs` file to include a `shebang` directive that points to `runghc`. This looks like this:
+
+```haskell
+#!/usr/bin/env runghc
+
+main :: IO ()
+main = putStrLn "Hello, World!"
+```
+
+Then make the file executable:
+
+```
+chmod +x hello.hs
+```
+
+And then run the script:
+
+```
+./hello.hs
+Hello, World!
+```
 
 # Why we need Cabal or Stack.
 
