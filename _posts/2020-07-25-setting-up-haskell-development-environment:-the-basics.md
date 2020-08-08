@@ -280,3 +280,5 @@ What about dependency management? How does one handle the situation where there 
 Having to manually manage different installed versions of `ghc` is problematic and error-prone, as is the case of trying to manually manage external dependent Haskell packages. It is for this reason tools are built to help with these concerns, and much more. Cabal and Stack are an example of such tools.
 
 In the next post, we would take a look at Cabal. Understand more what it is, what it does, and how to use it. Following that, we do the same for Stack.
+
+
