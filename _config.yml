@@ -7,5 +7,5 @@ twitter_username: schooloffp
 github_username:  schooloffp
 theme: minima
 google_analytics: UA-128171792-1
-plugins:
+gems:
  - jekyll-feed
