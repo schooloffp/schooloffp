@@ -38,7 +38,7 @@ One thing to point out regarding the concepts of packages and projects is that S
 
 Stack is a build tool for Haskell. It is an alternative to `cabal-install`, but still makes use of cabal the package format and Cabal the library. It has a strong focus on reproducible build plans. It was conceived to solve dependency problems (commonly referred to as cabal hell) that used to plague `cabal-install`. It does this by providing a curated package set that is guaranteed to always compile.
 
-> It should be stressed that the cabal hell issue that used to plague cabal-install has mostly been resolved. The solution took a different approach than what Stack employed. It made use of an approach similar to what is obtained in Nix. The details of this are not important, just that using either `cabal-install` or `Stack` is now a matter of preference and UX choices.
+> It should be stressed that the cabal hell issue that used to plague cabal-install has mostly been resolved. The solution took a different approach than what Stack employed. It made use of an approach similar to what is obtained in Nix. The details of this are not important, just that using either `cabal-install` or `stack`is now a matter of preference and UX choices.
 
 
 ## Moving parts
@@ -61,13 +61,13 @@ It is easy to imagine the need for versioning for these curated package sets. Wh
 
 ### hpack
 
-As explained in [Clarifying Terms section](https://schooloffp.co/2020/08/17/whirlwind-tour-of-cabal-for-beginners.html#clarifying-terms) Haskell makes use of cabal package format, a text-based, key-value format used to describe a Haskell package. hpack is an alternate format to cabal package format. Instead of a custom key-value text-based format, it makes use of yaml. While the cabal package format uses a custom key-value text-based format specified in a file ending with `.cabal` extension, hpack uses YAML with package descriptions specified in `package.yaml` file. `Stack` has inbuilt support for hpack. This means `Stack` can parse hpacks’ `package.yaml` and use it to generate `.cabal` file.
+As explained in [Clarifying Terms section](https://schooloffp.co/2020/08/17/whirlwind-tour-of-cabal-for-beginners.html#clarifying-terms) Haskell makes use of cabal package format, a text-based, key-value format used to describe a Haskell package. hpack is an alternate format to cabal package format. Instead of a custom key-value text-based format, it makes use of yaml. While the cabal package format uses a custom key-value text-based format specified in a file ending with `.cabal` extension, hpack uses YAML with package descriptions specified in `package.yaml` file. `stack`has inbuilt support for hpack. This means `stack`can parse hpacks’ `package.yaml` and use it to generate `.cabal` file.
 
-So in summary, you can view `Stack` as a Haskell build tool, that makes use of curated package sets, identified by resolvers and hosted on stackage, with inbuilt support for hpack as an alternative package specification format.
+So in summary, you can view `stack`as a Haskell build tool, that makes use of curated package sets, identified by resolvers and hosted on stackage, with inbuilt support for hpack as an alternative package specification format.
 
 ## Installing Stack
 
-Installing `Stack` is straight forward. On Un*x operating systems, run: 
+Installing `stack`is straight forward. On Un*x operating systems, run: 
 
 ```bash
 curl -sSL https://get.haskellstack.org/ | sh
@@ -75,19 +75,19 @@ curl -sSL https://get.haskellstack.org/ | sh
 
 On windows, the provided [Windows Installer](https://get.haskellstack.org/stable/windows-x86_64-installer.exe) can be used
 
-To confirm `Stack` is properly installed run, `stack --version` which will give an output similar to this:
+To confirm `stack`is properly installed run, `stack --version` which will give an output similar to this:
 
 ```bash
 $ stack --version
 Version 2.3.3, Git revision cb44d51bed48b723a5deb08c3348c0b3ccfc437e x86_64 hpack-0.33.0
 ```
 
-> Note that you do not need to install GHC separately when using Stack. `Stack` handles getting the version of GHC needed for each project created. This is also one of the ways in which `Stack` differs from `cabal-install` which requires GHC to be separately downloaded and installed. So `Stack` not only takes care of resolving dependencies, compiling Haskell code, it also handles the management of the toolchain required to do this, and GHC is included in the toolchain.
+> Note that you do not need to install GHC separately when using Stack. `stack`handles getting the version of GHC needed for each project created. This is also one of the ways in which `stack`differs from `cabal-install` which requires GHC to be separately downloaded and installed. So `stack`not only takes care of resolving dependencies, compiling Haskell code, it also handles the management of the toolchain required to do this, and GHC is included in the toolchain.
 
 
 ## Creating a new project
 
-Now we have `Stack` installed, the next thing to do is to create a new Haskell project. Doing this is straightforward. To create a new project, run Stack, and pass the `new` option. Doing so will produce an output similar to this:
+Now we have `stack`installed, the next thing to do is to create a new Haskell project. Doing this is straightforward. To create a new project, run Stack, and pass the `new` option. Doing so will produce an output similar to this:
 
 ```bash
 $ stack new firstproject
@@ -129,9 +129,9 @@ All done.
 /Users/schooloffp/.stack/templates/new-template.hsfiles:    3.72 KiB downloaded...
 ```
 
-The above command will create a directory named `firstproject` with contains the `Stack` project.
+The above command will create a directory named `firstproject` with contains the `stack`project.
 
-> The above command creates a project based on a default template which disctates the default files and configuration that will be created. It should be noted that it is possible to pass an extra option together with `new` that specifies the template that `Stack` should use to create a new project. When the template option is left out, `Stack` uses the `new-template` template by default. Hence `stack new firstproject` is same as running `stack new firstproject new-template`. Run `stack templates` to see the available templates.
+> The above command creates a project based on a default template which disctates the default files and configuration that will be created. It should be noted that it is possible to pass an extra option together with `new` that specifies the template that `stack`should use to create a new project. When the template option is left out, `stack`uses the `new-template` template by default. Hence `stack new firstproject` is same as running `stack new firstproject new-template`. Run `stack templates` to see the available templates.
 
 The state of the directory after running `stack new firstproject` can be seen:
 
@@ -167,45 +167,45 @@ This is where the license governing the project is specified, as also evident in
 The well-known README file.
 
 ### Setup.hs
-The `Setup.hs` files come in handy in the scenario where one needs to circumvent tools like `cabal-install` or `Stack` for direct usage of the Cabal library when compiling Cabal packages. The `Setup.hs` is, in essence, a runnable Haskell program that can be further configured and used to compile Cabal packages.
+The `Setup.hs` files come in handy in the scenario where one needs to circumvent tools like `cabal-install` or `stack`for direct usage of the Cabal library when compiling Cabal packages. The `Setup.hs` is, in essence, a runnable Haskell program that can be further configured and used to compile Cabal packages.
 
 This is an exceptional use case. Everyday Haskell development would probably never require the need for Setup.hs and hence it can be ignored or even safely deleted.
 
 ### app/Main.hs
 
-A Haskell package can contain both an executable (to be run) or a library, (to be used when writing Haskell code). It is customary to put the source files that generate executable and library in separate directories. When `stack new` is used, it puts the executables into a directory named `app` . Main.hs is a default executable source `Stack` generates, hence why it is put in the `app` directory.
+A Haskell package can contain both an executable (to be run) or a library, (to be used when writing Haskell code). It is customary to put the source files that generate executable and library in separate directories. When `stack new` is used, it puts the executables into a directory named `app` . Main.hs is a default executable source `stack`generates, hence why it is put in the `app` directory.
 
 ### firstproject.cabal
 
-This is the cabal package format file. `Stack` maintains this file: generates it and updates it when necessary, hence it should never be the case that you need to update this file directly.
+This is the cabal package format file. `stack`maintains this file: generates it and updates it when necessary, hence it should never be the case that you need to update this file directly.
 
 ### package.yaml
 
-This is the hpack package format file, which has already been explained to be an alternative to the cabal package format. This is the file that you will need to update to provide meta-information like dependencies, information about the developer(s) maintaining the package, directories where the executable and libraries can be found etc. `Stack` uses this as input to generate the `.cabal` file for the project. 
+This is the hpack package format file, which has already been explained to be an alternative to the cabal package format. This is the file that you will need to update to provide meta-information like dependencies, information about the developer(s) maintaining the package, directories where the executable and libraries can be found etc. `stack`uses this as input to generate the `.cabal` file for the project. 
 
 > Consult [hpack quick reference](https://github.com/sol/hpack#quick-reference) for an overview of properties that can be set within the package.yaml file.
 
 ### src/Lib.hs
 
-As specified in the clarifying term section[link], a Haskell package can contain both an executable (to be run) or a library, (to be used when writing Haskell code). It is customary to put the source files that generate executable and library in separate directories. When `stack new` is used, it puts the libraries into a directory named `src`. Lib is a default library source `Stack` generates, hence why it is put in the `src` directory  
+As specified in the clarifying term section[link], a Haskell package can contain both an executable (to be run) or a library, (to be used when writing Haskell code). It is customary to put the source files that generate executable and library in separate directories. When `stack new` is used, it puts the libraries into a directory named `src`. Lib is a default library source `stack`generates, hence why it is put in the `src` directory  
 
 ### stack.yaml
 
-Stack.yaml contains contents that are used to configure `Stack` itself and how it should build your project. It contains information like which resolver version `Stack` should use, the list of packages `Stack` should build in cases where the project contains source code for more than one package. 
+Stack.yaml contains contents that are used to configure `stack`itself and how it should build your project. It contains information like which resolver version `stack`should use, the list of packages `stack`should build in cases where the project contains source code for more than one package. 
  
 ### test/Spec.hs
 
-This contains the default test cases `Stack` generates.
+This contains the default test cases `stack`generates.
 
-> In the above files, `package.yaml` and `stack.yaml` are the files that you use to configure the behaviour of `Stack` and properties of the project being built. The `.cabal` file can be ignored because `Stack` generates and maintains that for you. `Setup.hs` can also be ignored as it is not used in most use cases.
+> In the above files, `package.yaml` and `stack.yaml` are the files that you use to configure the behaviour of `stack`and properties of the project being built. The `.cabal` file can be ignored because `stack`generates and maintains that for you. `Setup.hs` can also be ignored as it is not used in most use cases.
 
 ## Configuring Stack
 
-Before we go-ahead to start creating and building projects in Stack, it is important to understand how to configure `Stack` and where the various configuration files can be found. This knowledge will help in a better understanding of which configurations to change and where to find them when there is the need to tweak how `Stack` works.
+Before we go-ahead to start creating and building projects in Stack, it is important to understand how to configure `stack`and where the various configuration files can be found. This knowledge will help in a better understanding of which configurations to change and where to find them when there is the need to tweak how `stack`works.
 
-`Stack` works with the idea of a project which is a directory that contains a `stack.yaml` configuration file. A `Stack` project then contains one or more Haskell packages, which is depicted by the presence of one or more package.yaml (or the corresponding .cabal files). These packages are often referred to as local packages.
+`stack`works with the idea of a project which is a directory that contains a `stack.yaml` configuration file. A `stack`project then contains one or more Haskell packages, which is depicted by the presence of one or more package.yaml (or the corresponding .cabal files). These packages are often referred to as local packages.
 
-`Stack` can be used either in the context of a project or outside of a project. When used in the context of a project, `Stack` is executed from within a directory that contains `stack.yaml`. Using `Stack` outside of a project means executing `Stack` from a location where there is no `stack.yaml`` file.
+`stack`can be used either in the context of a project or outside of a project. When used in the context of a project, `stack`is executed from within a directory that contains `stack.yaml`. Using `stack`outside of a project means executing `stack`from a location where there is no `stack.yaml`` file.
 
 Hence there are three files that should be noted when configuring Stack, and these include:
 
@@ -217,17 +217,17 @@ Hence there are three files that should be noted when configuring Stack, and the
 
 So what do these configurations contain and when do they get applied?
 
-**`<project_dir>/stack.yaml`** contains local package related configuration, **`~/.stack/global-project/stack.yaml`** also contains package related configuration but it is _only_ consulted in the cases where `Stack` is executed outside of a directory with a `stack.yaml` file. **`~/.stack/config.yaml`** contains a non-project configuration that can be used to change how `Stack` does what it does. For example which `hpack` binary `Stack` should use, or where `Stack` should put the executables it builds.
+**`<project_dir>/stack.yaml`** contains local package related configuration, **`~/.stack/global-project/stack.yaml`** also contains package related configuration but it is _only_ consulted in the cases where `stack`is executed outside of a directory with a `stack.yaml` file. **`~/.stack/config.yaml`** contains a non-project configuration that can be used to change how `stack`does what it does. For example which `hpack` binary `stack`should use, or where `stack`should put the executables it builds.
 
-Put another way, when `Stack` is executed from within a project, configuration is picked from `<project_dir>/stack.yaml` together with whatever default that is specified in `~/.stack/config.yaml`.
+Put another way, when `stack`is executed from within a project, configuration is picked from `<project_dir>/stack.yaml` together with whatever default that is specified in `~/.stack/config.yaml`.
 
-When `Stack` is executed outside of a project, `Stack` still needs a stack.yaml, hence the one specified in ~/.stack/global-project/stack.yaml is used together with whatever default is specified in ~/.stack/config.yaml.
+When `stack`is executed outside of a project, `stack`still needs a stack.yaml, hence the one specified in ~/.stack/global-project/stack.yaml is used together with whatever default is specified in ~/.stack/config.yaml.
 
 `<project_dir>/stack.yaml` and `~/.stack/global-project/stack.yaml` are said to contain project specific configuration options, while `~/.stack/config.yaml` contains default non project specific options.
 
-One might ask, what `Stack` commands can be executed outside of a directory where no `stack.yaml` file exists? 
+One might ask, what `stack`commands can be executed outside of a directory where no `stack.yaml` file exists? 
 
-A very good example of such is `stack new` which creates such a directory where a stack.yaml file will be created. Configurations found within `~/.stack/global-project/stack.yaml` (and also defaults within `~/.stack/config.yaml`) is then consulted. In this post, many more commands that can be executed outside of a `Stack` project would be touched upon. 
+A very good example of such is `stack new` which creates such a directory where a stack.yaml file will be created. Configurations found within `~/.stack/global-project/stack.yaml` (and also defaults within `~/.stack/config.yaml`) is then consulted. In this post, many more commands that can be executed outside of a `stack`project would be touched upon. 
 
 > To see what project-specific configuration options there are, check [here](https://docs.haskellstack.org/en/stable/yaml_configuration/#project-specific-config). For non project configurations, check [here](https://docs.haskellstack.org/en/stable/yaml_configuration/#non-project-specific-config)
 
@@ -248,7 +248,7 @@ Downloaded ghc-8.8.4.
 
 ```
 
-This would compile and build the executable in the project. To do this, `Stack` will first download the required GHC version for the project. This can be seen from initial log snippets. This is a unique feature of Stack. `Stack` not only helps in building Haskell projects, but it also manages the compiler version, that is the GHC version that would be used.
+This would compile and build the executable in the project. To do this, `stack`will first download the required GHC version for the project. This can be seen from initial log snippets. This is a unique feature of Stack. `stack`not only helps in building Haskell projects, but it also manages the compiler version, that is the GHC version that would be used.
 
 To run the executable generated above, after the `stack build` command finishes run `stack run`
 
@@ -257,13 +257,13 @@ $ stack run
 someFunc
 ```
 
-> The `stack run` command can be executed without first running `stack build`. If that is done, `Stack` will make sure to first build in order to generate the executable that would be run.
+> The `stack run` command can be executed without first running `stack build`. If that is done, `stack`will make sure to first build in order to generate the executable that would be run.
 
-So far so good, we have a project that contains an executable package which we were able to build and run. The next thing to look at is how `Stack` helps with dependency management.
+So far so good, we have a project that contains an executable package which we were able to build and run. The next thing to look at is how `stack`helps with dependency management.
 
 ## Adding dependencies
 
-`Stack` works with curated package sets hosted on Stackage, hence naturally `Stack` consults Stackage for resolving external third-party dependencies. As Stackage is a subset of packages, it may so happen that a required dependency is not on Stackage but found in the uncurated Hackage repository. For this situation, `Stack` still makes it possible to make use of packages found on Hackage. In this section, we see how to include dependencies from both Stackage and Hackage.
+`stack`works with curated package sets hosted on Stackage, hence naturally `stack`consults Stackage for resolving external third-party dependencies. As Stackage is a subset of packages, it may so happen that a required dependency is not on Stackage but found in the uncurated Hackage repository. For this situation, `stack`still makes it possible to make use of packages found on Hackage. In this section, we see how to include dependencies from both Stackage and Hackage.
 
 To illustrate how to add dependencies from stackage to a package we will be modifying the package we got when we ran `stack new` and we will be adding two packages. The packages are [emojis](https://hackage.haskell.org/package/emojis) an emoji utility, and [haskell-say](https://hackage.haskell.org/package/haskell-say) which decorates texts printed to the console with ASCII art of a callout from the Haskell logo. 
 
@@ -316,7 +316,7 @@ Plan construction failed
 
 So what is going on here?
 
-The problem is, the `haskell-say` package is not present on stackage. When the `package.yaml` was edited to include `emojis` and `haskell-say`, `Stack` was able to resolve the needed `emojis` package as this is included in Stackage as can be seen [here](https://www.stackage.org/lts-16.22/package/emojis-0.1), `haskall-say`, this means even though `haskell-say` has been specified as a dependency via its inclusion in `package.yaml`, `Stack` will need extra help to be able to retrieve the `haskell-say` package, this time from Hackage, since it is not present in Stackage. To do this, the `extra-deps` configuration in `stack.yaml` is used.
+The problem is, the `haskell-say` package is not present on stackage. When the `package.yaml` was edited to include `emojis` and `haskell-say`, `stack`was able to resolve the needed `emojis` package as this is included in Stackage as can be seen [here](https://www.stackage.org/lts-16.22/package/emojis-0.1), `haskall-say`, this means even though `haskell-say` has been specified as a dependency via its inclusion in `package.yaml`, `stack`will need extra help to be able to retrieve the `haskell-say` package, this time from Hackage, since it is not present in Stackage. To do this, the `extra-deps` configuration in `stack.yaml` is used.
 
 Edit `stack.yaml` and update the `extra-deps` configuration as follows:
 
@@ -609,9 +609,9 @@ The next thing to look at is one of the stated benefits of using a build tool li
 
 ## Using different GHC compiler across different projects
 
-The goal is to be able to have two (or more) projects and be able to specify that they use different GHC versions. This is trivial to achieve with `Stack` based on how `Stack` works. As stated earlier, `Stack` does not only take care of building Haskell projects, it also takes care of downloading the necessary version of GHC needed. 
+The goal is to be able to have two (or more) projects and be able to specify that they use different GHC versions. This is trivial to achieve with `stack`based on how `stack`works. As stated earlier, `stack`does not only take care of building Haskell projects, it also takes care of downloading the necessary version of GHC needed. 
 
-This means to have a project use a specific version of GHC, the only thing needed to be done is to instruct `Stack` appropriately. And this is done by updating the `resolver` key in the `Stack.yaml` file, and specifying the appropriate LTS version of the package curated set that corresponds to the GHC version needed.
+This means to have a project use a specific version of GHC, the only thing needed to be done is to instruct `stack`appropriately. And this is done by updating the `resolver` key in the `Stack.yaml` file, and specifying the appropriate LTS version of the package curated set that corresponds to the GHC version needed.
 
 The version of GHC being used in a project can be confirmed by checking what the corresponding GHC version is to the LTS version specified in `stack.yaml`. This can be done by looking it up on [Stackage.org](https://www.stackage.org/) which always specify the GHC version that would be downloaded alongside the LTS version. Another way to check is to run  `stack ghc -- --version` from within the directory containing the project. If this is run from the directory of the project created earlier on, the output will be:
 
@@ -650,7 +650,7 @@ The REPL which stands for Read-Eval-Print-Loop, is an interactive computer progr
 
 > For an overview of GHCI and the other components of the Haskell Tool chain, check [Setting Up Haskell Development Environment: The Basics](https://schooloffp.co/2020/07/25/setting-up-haskell-development-environment-the-basics.html)
 
-`Stack` provides the opportunity to interact with the Haskell REPL. Below is a run-through of some of the common ways of interacting with the REPL via stack.
+`stack`provides the opportunity to interact with the Haskell REPL. Below is a run-through of some of the common ways of interacting with the REPL via stack.
 
 ### Starting the REPL
 
@@ -706,7 +706,7 @@ $ stack repl Hello.hs
 
 ### Loading an external module into the REPL session
 
-`Stack` can also download and make an external package available for use in the REPL. This can be done by using the `--package` to specify the package `Stack` should load into the REPL session. For example the following loads and uses the `titlecase` package in the REPL:
+`stack`can also download and make an external package available for use in the REPL. This can be done by using the `--package` to specify the package `stack`should load into the REPL session. For example the following loads and uses the `titlecase` package in the REPL:
 
 ```bash
 $ stack repl --package titlecase Hello.hs
@@ -720,7 +720,7 @@ $ stack repl --package titlecase Hello.hs
 
 A question that is reasonable to ask is what is the version of the package that is loaded into the REPL in this way? Apart from the version of the package, what about the version of the GHC used in the REPL?
 
-`stack repl` is one example of `Stack` commands that can be run outside of a directory containing `stack.yaml`. As earlier mentioned, such commands will have `Stack` picking up its configuration from ~/.stack/global-project/stack.yaml and ~/.stack/config.yaml. For example the GHC version to be used in the REPL session. 
+`stack repl` is one example of `stack`commands that can be run outside of a directory containing `stack.yaml`. As earlier mentioned, such commands will have `stack`picking up its configuration from ~/.stack/global-project/stack.yaml and ~/.stack/config.yaml. For example the GHC version to be used in the REPL session. 
 
 Another way of specifying version information when starting the REPL is to use the `--resolver ` parameter to set the version of the curated package set used. This would not only specify the GHC version used, but also the version of the package. 
 
@@ -750,7 +750,7 @@ Every 🐶 has its 📆
 
 ## How to execute a Haskell file as a script
 
-In [Setting Up Haskell Development Environment: The Basics](https://schooloffp.co/2020/07/25/setting-up-haskell-development-environment-the-basics.html) we saw how to execute a file containing Haskell source code as a script. We can achieve the same with Stack. Running Haskell source as script via `Stack` has the additional benefit of allowing dependencies to be specified and used within the script!
+In [Setting Up Haskell Development Environment: The Basics](https://schooloffp.co/2020/07/25/setting-up-haskell-development-environment-the-basics.html) we saw how to execute a file containing Haskell source code as a script. We can achieve the same with Stack. Running Haskell source as script via `stack`has the additional benefit of allowing dependencies to be specified and used within the script!
 
 For example the following code snippet in a file named haskellsayscript.hs shows how to have a script that prints out text to the console using the `titlecase` and `haskell-say` package.
 
@@ -776,7 +776,7 @@ main =
 
 ```
 
-The preambles at the top specify `Stack` as the interpreter. It also specifies the dependencies the script uses. This would be downloaded and made available before the script runs.
+The preambles at the top specify `stack`as the interpreter. It also specifies the dependencies the script uses. This would be downloaded and made available before the script runs.
 
 Make the script executable:
 
@@ -813,7 +813,7 @@ $ ./haskellsayscript.hs
 
 ## How to install packages
 
-`Stack` can also be used to install executables. It should be noted that `Stack` is not a full-fledged package manager and should not be seen as a replacement for tools like homebrew, chocolatey, or even the native package manager that comes with Gnu/Linux systems. If the choice exists, prefer to manage installed software via these established package managers instead of using cabal-install. Having said that, software, i.e. executable created in Haskell can be installed via Stack.
+`stack`can also be used to install executables. It should be noted that `stack`is not a full-fledged package manager and should not be seen as a replacement for tools like homebrew, chocolatey, or even the native package manager that comes with Gnu/Linux systems. If the choice exists, prefer to manage installed software via these established package managers instead of using cabal-install. Having said that, software, i.e. executable created in Haskell can be installed via Stack.
 
 To illustrate this, we will install the titlecase executable which provides a command-line utility that converts English words to title case.
 
@@ -839,15 +839,15 @@ $ which titlecase
 /Users/schooloffp/.local/bin/titlecase
 ```
 
-Which shows that the `titlecase` executable is indeed in the `Stack` local bin path.
+Which shows that the `titlecase` executable is indeed in the `stack`local bin path.
 
 ## Some interesting Stack paths
 
-The `Stack` local bin path is just one of the various paths that `Stack` uses. In the concluding section of this tour of `Stack` some other interesting paths are outlined below:
+The `stack`local bin path is just one of the various paths that `stack`uses. In the concluding section of this tour of `stack`some other interesting paths are outlined below:
 
 #### Global stack root directory
 
-This is the path to the directory where all `Stack` related assets (files, executable, configuration etc) can be found. By default this is located in `$HOME/.stack`. To show the location of Stack's root directory run:
+This is the path to the directory where all `stack`related assets (files, executable, configuration etc) can be found. By default this is located in `$HOME/.stack`. To show the location of Stack's root directory run:
 
 ```bash
 $ stack path --stack-root
@@ -878,14 +878,14 @@ Showing that indeed this is where the different versions of GHC stacks needs are
 
 #### Configuration location (where the stack.yaml file is)
 
-This is the path to the directory where the `stack.yaml` is located. To see the value of this path run `stack path --config-location`. Running this in a directory that is not a `Stack` project gives the following results:
+This is the path to the directory where the `stack.yaml` is located. To see the value of this path run `stack path --config-location`. Running this in a directory that is not a `stack`project gives the following results:
 
 ```bash
 $ stack path --config-location
 /Users/schooloffp/.stack/global-project/stack.yaml
 ```
 
-while running the same command in a directory containing a `Stack` project gives the following:
+while running the same command in a directory containing a `stack`project gives the following:
 
 ```bash
 cd firstproject/
@@ -893,18 +893,18 @@ $ stack path --config-location
 /Users/schooloffp/delete/stack/firstproject/stack.yaml
 ```
 
-Confirming that `stack.yaml` found in a directory containing a `Stack` project would take effect over the default. 
+Confirming that `stack.yaml` found in a directory containing a `stack`project would take effect over the default. 
 
 #### Compiler binary (e.g. ghc)
 
-This is the path to the exact GHC binary used. To see the value of this path run `stack path --compiler-exe`. Running this in a directory that is not a `Stack` project gives the following results:
+This is the path to the exact GHC binary used. To see the value of this path run `stack path --compiler-exe`. Running this in a directory that is not a `stack`project gives the following results:
 
 ```bash
 $ stack path --compiler-exe
 /Users/schooloffp/.stack/programs/x86_64-osx/ghc-8.6.5/bin/ghc-8.6.5
 ```
 
-while running the same command in a directory containing a `Stack` project gives the following:
+while running the same command in a directory containing a `stack`project gives the following:
 
 ```bash
 cd firstproject/
@@ -914,4 +914,4 @@ $ stack path --compiler-exe
 
 Indicating that the version of GHC used may be different per project.
 
-This ends the whirlwind tour of `Stack` for beginners. The information presented in this post should be enough to get started with working with `Stack`. The [Stack User Guide](https://docs.haskellstack.org/en/stable/GUIDE/) is a good resource to check out to further explorer how to use `Stack`. The [hpack README](https://github.com/sol/hpack#hpack-a-modern-format-for-haskell-packages) is also another resource to consult to futher explore how `package.yaml` can be confifigured.
+This ends the whirlwind tour of `stack`for beginners. The information presented in this post should be enough to get started with working with `Stack`. The [Stack User Guide](https://docs.haskellstack.org/en/stable/GUIDE/) is a good resource to check out to further explorer how to use `Stack`. The [hpack README](https://github.com/sol/hpack#hpack-a-modern-format-for-haskell-packages) is also another resource to consult to futher explore how `package.yaml` can be confifigured.
