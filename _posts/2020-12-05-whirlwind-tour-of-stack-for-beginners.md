@@ -41,7 +41,7 @@ Stack is a build tool for Haskell. It is an alternative to `cabal-install`, but 
 > It should be stressed that the cabal hell issue that used to plague cabal-install has mostly been resolved. The solution took a different approach than what Stack employed. It made use of an approach similar to what is obtained in Nix. The details of this are not important, just that using either `cabal-install` or `Stack` is now a matter of preference and UX choices.
 
 
-## Stack's moving parts
+## Moving parts
 
 Stack also comes with some moving parts and terms that could be confusing to a beginner. In this section, these terms are explained before moving to how to install Stack.
 
