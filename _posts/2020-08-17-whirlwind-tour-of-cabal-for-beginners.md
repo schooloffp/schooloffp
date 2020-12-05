@@ -1002,6 +1002,6 @@ This is another artifact of history.
 
 When the new commands that make use of the nix-style approach to fix the cabal hell issue were being developed, they were prefixed by `new-*` prefix and later by `v2-*`. All these while the non prefixed version of these commands remained problematic. With version 3 of `cabal-install`, the default commands, that is, commands without the prefix now use the implementations that fix the cabal hell problem. Although the prefix `v2-*` and `new-*` still works, it is best practice to no longer use them.
 
-This ends the whirlwind tour of cabal for beginners. Next up we would take a look at `stack`.
+This ends the whirlwind tour of cabal for beginners. [Next up](https://schooloffp.co/2020/12/05/whirlwind-tour-of-stack-for-beginners.html) we would take a look at `stack`.
 
 
