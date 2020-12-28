@@ -119,6 +119,12 @@ public static class Kata
 
 You see the pattern here? Even in Python, a language that uses whitespace instead of curly braces, the structure of the solutions are all similar. It is not then difficult to see how someone who is proficient in one of the languages can easily make sense of any of the other languages because the structure of their syntax are the same.
 
+Note that some of these imperative languages above now have constructs that makes it possible to emulate functional syntax. For example iterations and operations usually performed via `for loops` can now be done using construncts like streams and lambdas. This only shows the influence of functional programming on mainstream imperative languages. Infact these functional style is often seen as unnatural to the original languages. The creator of Python, Guido van Rossum, shared a similar sentiment about functional programming style in Python:
+
+> Python probably has the reputation of supporting functional programming based on the inclusion of lambda, map, filter, and reduce in the language, but in my eyes these are just syntactic sugar, and not the fundamental building blocks that they are in functional languages.
+
+- [source](https://books.google.nl/books?id=yB1WwURwBUQC&pg=PA26&lpg=PA26&dq=Python+probably+has+the+reputation+of+supporting+functional+programming+based+on+the+inclusion+of+lambda,+map,+filter,+and+reduce+in+the+language,+but+in+my+eyes+these+are+just+syntactic+sugar,+and+not+the+fundamental+building+blocks+that+they+are+in+functional+languages&source=bl&ots=-FON4zmkcC&sig=ACfU3U0t3fD8IgnwdRoOLWbMvdRsqmMMOg&hl=en&sa=X&ved=2ahUKEwizwPvo0O_tAhVH4aQKHWrJDuUQ6AEwAHoECAEQAg#v=onepage&q=Python%20probably%20has%20the%20reputation%20of%20supporting%20functional%20programming%20based%20on%20the%20inclusion%20of%20lambda%2C%20map%2C%20filter%2C%20and%20reduce%20in%20the%20language%2C%20but%20in%20my%20eyes%20these%20are%20just%20syntactic%20sugar%2C%20and%20not%20the%20fundamental%20building%20blocks%20that%20they%20are%20in%20functional%20languages&f=false)
+
 Now let us see the solution in Haskell:  
 
 **Solution in Haskell**. [source](https://www.codewars.com/kata/reviews/5546614c0240a76900000188/groups/5a42ff9c2d59e1e85a0035e0)
@@ -131,7 +137,8 @@ solution :: Integer -> Integer
 solution n = sum $ [3,6..n-1] `union` [5,10..n-1]
 ```
 
-This looks very different from the previous solutions. The syntax is different and that is because Haskell's syntax is not inspired by C. This highlights how Haskell is different when it comes to the axis of syntax.
+This looks very different from the previous solutions. The syntax is different and that is because Haskell's syntax is not inspired by C. **More importantly, this syntax is native to Haskell, and not just a style**. This highlights how Haskell is different when it comes to the axis of syntax.
+
 
 > An analogy:
 Imagine you understand British English, and you want to learn how to write American English. Such a task would be pretty straight forward since you can more or less apply the bulk of the knowledge you already have. What you will then need to learn consists of knowing where to tweak things like the grammar and spelling and idioms that are peculiar to American English. Now contrast that to learning how to write Russian. To do that successfully you will need to be able to set aside what you already know in English and be ready to pick up new grammar rules, new alphabets, new spellings, new idioms, etc.<br/><br/>
